@@ -4,13 +4,8 @@ import com.soyhenry.moneywiseAPI.Model.User;
 import com.soyhenry.moneywiseAPI.dao.UserRepository;
 import com.soyhenry.moneywiseAPI.dao.dto.UserDto;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 @Repository
 public  class UserRepositoryImplH2 implements UserRepository {
@@ -29,7 +24,7 @@ public  class UserRepositoryImplH2 implements UserRepository {
 
     @Override
     public void insert(User user) {
-       jdbcTemplate.update(INSERT_USER);
+       jdbcTemplate.update(INSERT_USER,user);
     }
 
     @Override
@@ -51,7 +46,7 @@ public  class UserRepositoryImplH2 implements UserRepository {
         User user = new User();
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setPass(userDto.getPassword());
         return user;
     }
 

@@ -5,17 +5,17 @@ public class User {
 
     private String name;
     private String email;
-    private String password;
+    private String pass;
     private List<Entry> entries;
 
     public User() {
     }
 
     // create user constructor
-    public User(String name, String email, String password) {
+    public User(String name, String email, String pass) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.pass = pass;
     }
 
     ;
@@ -44,12 +44,12 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     @Override

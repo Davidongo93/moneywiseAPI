@@ -3,7 +3,7 @@ package com.soyhenry.moneywiseAPI.dao.dto.request;
 public class UserRequestDto {
     private String name;
     private String email;
-    private String password;
+    private String pass;
 
     public String getName() {
         return name;
@@ -21,11 +21,11 @@ public class UserRequestDto {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }
