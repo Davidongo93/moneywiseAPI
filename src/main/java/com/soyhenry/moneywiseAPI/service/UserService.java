@@ -1,7 +1,8 @@
 package com.soyhenry.moneywiseAPI.service;
 
 import com.soyhenry.moneywiseAPI.Model.User;
+import com.soyhenry.moneywiseAPI.dao.dto.request.UserRequestDto;
 
 public interface UserService {
-    public User createUser(User user);
+    String createUser(UserRequestDto userRequestDto);
 }
