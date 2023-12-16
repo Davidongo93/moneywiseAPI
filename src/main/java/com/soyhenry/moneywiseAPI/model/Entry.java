@@ -1,4 +1,4 @@
-package com.soyhenry.moneywiseAPI.Model;
+package com.soyhenry.moneywiseAPI.model;
 
 import java.util.Date;
 
