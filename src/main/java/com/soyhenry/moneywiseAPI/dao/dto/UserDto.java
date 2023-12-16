@@ -3,15 +3,15 @@ package com.soyhenry.moneywiseAPI.dao.dto;
 public class UserDto {
     private String name;
     private String email;
-    private String password;
+    private String pass;
 
     public UserDto() {
     }
 
-    public UserDto(String name, String email, String password) {
+    public UserDto(String name, String email, String pass) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.pass = pass;
     }
 
     public String getName() {
@@ -30,12 +30,12 @@ public class UserDto {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class UserDto {
         return "UserDto{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + pass + '\'' +
                 '}';
     }
 }
