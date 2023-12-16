@@ -1,16 +1,15 @@
 package com.soyhenry.moneywiseAPI.service.impl;
 
-import com.soyhenry.moneywiseAPI.Model.User;
+import com.soyhenry.moneywiseAPI.model.User;
 import com.soyhenry.moneywiseAPI.dao.UserRepository;
 import com.soyhenry.moneywiseAPI.dao.dto.request.UserRequestDto;
-import com.soyhenry.moneywiseAPI.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImplImpl implements com.soyhenry.moneywiseAPI.service.UserServiceImpl {
     private final UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImplImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
