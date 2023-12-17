@@ -1,7 +1,7 @@
 -- tables-creation.sql
 
 -- Create table 'users'
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE users (
 );
 
 -- Crete table 'entries'
-CREATE TABLE entries (
+CREATE TABLE IF NOT EXISTS entries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     date DATE NOT NULL,
