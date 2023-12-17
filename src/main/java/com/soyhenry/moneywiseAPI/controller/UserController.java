@@ -27,10 +27,28 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUserById(@PathVariable int id, @RequestBody UserRequestDto userRequestDto) {
+        String response = userService.updateUser(id, userRequestDto);
+        if (response.equals("User updated Succesfully")) {
+            return ResponseEntity.status(HttpStatus.OK).body(response);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        }
+    }
     @GetMapping("/users")
     public ResponseEntity<List<UserResponseDto>> getAllUsers() {
         List<UserResponseDto> responses = userService.getAllUsers();
         return ResponseEntity.status(HttpStatus.OK).body(responses);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+        userService.deleteUser(id);
+        System.out.println("User has been deleted");
+        return ResponseEntity
+                .status(HttpStatus.GONE)
+                .body("ID from deleted user: " + id);
     }
 
 

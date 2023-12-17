@@ -40,10 +40,24 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public List<UserResponseDto> getAllUsers(){
-        String response = "This is a Users list ordered by ID";
         List<User> users = userRepository.getAll();
         return users.stream().
                 map(this::mapUsersToResponseDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public String updateUser(int id, UserRequestDto userRequestDto) {
+        String response = "User updated Succesfully";
+        User user = mapDtoToUser(userRequestDto);
+        Integer responsesUpdated = userRepository.updateUser(id, user);
+        return response;
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        // NO ES UN BORRADO LOGICO, SI BORRASTE DESAPARECIO :O
+        String response = "User has been deleted";
+        userRepository.deleteUser(id);
     }
 
     private UserResponseDto mapUsersToResponseDto(User user) {
@@ -53,4 +67,5 @@ public class UserServiceImpl implements UserService {
         userResponseDto.setPass(user.getPass());
         return userResponseDto;
     }
+
 }

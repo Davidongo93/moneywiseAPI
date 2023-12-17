@@ -9,4 +9,7 @@ public interface UserService {
     String createUser(UserRequestDto userRequestDto);
 
     List<UserResponseDto> getAllUsers();
+
+    String updateUser(int id, UserRequestDto userRequestDto);
+    void deleteUser(int id);
 }

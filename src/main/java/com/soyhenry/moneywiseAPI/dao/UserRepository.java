@@ -10,7 +10,8 @@ import java.util.List;
 public interface UserRepository {
     Integer insert(User user);
     List<User> getAll();
-    void update();
-    void delete(Integer id);
+    Integer updateUser(int id, User user);
+    void deleteUser(Integer id);
+
 
 }
