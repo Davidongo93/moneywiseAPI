@@ -1,14 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoneyWise</title>
+
+    <style>
+        body {
+            color: steelblue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            margin-top: -25px;
+        }
+
+        .dark-mode .container {
+            background-color: #444;
+            color: #fff;
+        }
+
+        h1 {
+            color: steelblue;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: steelblue;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: steelblue;
+            color: #fff;
+        }
+
+        .dark-mode th {
+            background-color: #444;
+        }
+
+        .dark-mode td {
+            border-color: #666;
+        }
+    </style>
 </head>
 <body>
 
-<h1>Welcome to MoneyWiseAPI</h1>
-<p th:text="${message}"></p>
+<div class="container">
+    <h1>Welcome to MoneyWiseAPI</h1>
+
+    <button id="darkModeButton" class="button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <table>
+        <tr>
+            <th>Endpoint</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><a href="/h2-moneywise" target="_blank">/h2-moneywise</a></td>
+            <td>Access H2 Database</td>
+        </tr>
+        <tr>
+            <td><a href="/api/v1/user" target="_blank">/api/v1/user</a></td>
+            <td>Create User</td>
+        </tr>
+        <tr>
+            <td><a href="/api/v1/user/{ID}" target="_blank">/api/v1/user/{ID}</a></td>
+            <td>Delete or Update User</td>
+        </tr>
+        <tr>
+            <td><a href="/api/v1/user/users" target="_blank">/api/v1/user/users</a></td>
+            <td>Users List</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
 
 </body>
 </html>

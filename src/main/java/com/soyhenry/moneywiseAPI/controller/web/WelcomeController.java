@@ -9,7 +9,6 @@ public class WelcomeController {
 
     @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("message", "Hello World");
         return "welcome"; // Este nombre corresponde al nombre de tu archivo HTML en src/main/resources/templates
     }
 }
