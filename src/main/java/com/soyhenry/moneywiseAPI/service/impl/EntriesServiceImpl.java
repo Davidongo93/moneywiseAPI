@@ -18,9 +18,9 @@ public class EntriesServiceImpl implements EntriesService {
         this.entryRepository = entryRepository;
     }
 
-    public String createEntry(int userId, EntryRequestDto entryRequestDto) {
-        String response = "Entry created successfully";
-
+    public java.lang.String createEntry(int userId, EntryRequestDto entryRequestDto) {
+        java.lang.String response = "Entry created successfully";
+        System.out.println("no se usar el debugger" + entryRequestDto.getDate());
         Entry entry = mapDtoToEntry(userId, entryRequestDto);
         Integer responseInserted = entryRepository.insert(entry);
         if (responseInserted.equals(0)) {
@@ -36,15 +36,15 @@ public class EntriesServiceImpl implements EntriesService {
                 .collect(Collectors.toList());
     }
 
-    public String updateEntry(int userId, int entryId, EntryRequestDto entryRequestDto) {
-        String response = "Entry updated successfully";
+    public java.lang.String updateEntry(int userId, int entryId, EntryRequestDto entryRequestDto) {
+        java.lang.String response = "Entry updated successfully";
         Entry entry = mapDtoToEntry(userId, entryRequestDto);
         Integer responsesUpdated = entryRepository.updateEntry(entryId, entry);
         return response;
     }
 
     public void deleteEntry(int userId, int entryId) {
-        String response = "Entry has been deleted";
+        java.lang.String response = "Entry has been deleted";
         entryRepository.deleteEntry(userId, entryId);
     }
 
@@ -54,7 +54,11 @@ public class EntriesServiceImpl implements EntriesService {
         entry.setDate(entryRequestDto.getDate());
         entry.setDescription(entryRequestDto.getDescription());
         entry.setAmount(entryRequestDto.getAmount());
-        entry.setType(entryRequestDto.getType());
+
+        String string = String.valueOf(entryRequestDto.getType());
+        entryRequestDto.setType(java.lang.String.valueOf(string));
+
+        entry.setType(string);
         entry.setCategory(entryRequestDto.getCategory());
         return entry;
     }

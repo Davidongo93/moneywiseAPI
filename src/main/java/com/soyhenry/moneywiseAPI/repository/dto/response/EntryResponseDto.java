@@ -1,15 +1,11 @@
 package com.soyhenry.moneywiseAPI.repository.dto.response;
 
-import com.soyhenry.moneywiseAPI.model.EntryType;
-
-import java.util.Date;
-
 public class EntryResponseDto {
     private int id;
-    private Date date;
+    private String date;
     private String description;
     private double amount;
-    private EntryType type;  // Enum
+    private String type;  // Enum
     private String category;
     private int userId;
 
@@ -21,11 +17,11 @@ public class EntryResponseDto {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -45,11 +41,11 @@ public class EntryResponseDto {
         this.amount = amount;
     }
 
-    public EntryType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(EntryType type) {
+    public void setType(String type) {
         this.type = type;
     }
 

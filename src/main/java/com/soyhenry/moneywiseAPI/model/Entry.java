@@ -1,13 +1,11 @@
 package com.soyhenry.moneywiseAPI.model;
 
-import java.util.Date;
-
 public class Entry {
     private int id;
-    private Date date;
+    private String date;
     private String description;
     private double amount;
-    private EntryType type;  // Enum
+    private String type;  // Enum
     private String category;
     private int userId;
 
@@ -23,7 +21,7 @@ public class Entry {
         this.userId = userId;
     }
 
-    public Entry(Date date, String description, double amount, EntryType type, String category) {
+    public Entry(String date, String description, double amount, String type, String category) {
         this.date = date;
         this.description = description;
         this.amount = amount;
@@ -31,10 +29,7 @@ public class Entry {
         this.category = category;
     }
 
-    // constructor
-    public Entry(Date date, String description, double amount, EntryType type) {
-        this(date, description, amount, type, null);
-    }
+
 
     // Getters y Setters
 
@@ -46,11 +41,11 @@ public class Entry {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -70,11 +65,11 @@ public class Entry {
         this.amount = amount;
     }
 
-    public EntryType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(EntryType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
