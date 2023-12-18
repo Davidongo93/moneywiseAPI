@@ -1,7 +1,7 @@
 package com.soyhenry.moneywiseAPI.service;
 
-import com.soyhenry.moneywiseAPI.dao.dto.request.UserRequestDto;
-import com.soyhenry.moneywiseAPI.dao.dto.response.UserResponseDto;
+import com.soyhenry.moneywiseAPI.repository.dto.request.UserRequestDto;
+import com.soyhenry.moneywiseAPI.repository.dto.response.UserResponseDto;
 
 import java.util.List;
 

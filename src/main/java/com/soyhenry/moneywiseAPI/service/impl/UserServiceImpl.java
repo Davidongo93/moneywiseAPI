@@ -1,9 +1,9 @@
 package com.soyhenry.moneywiseAPI.service.impl;
 
-import com.soyhenry.moneywiseAPI.dao.dto.response.UserResponseDto;
+import com.soyhenry.moneywiseAPI.repository.dto.response.UserResponseDto;
 import com.soyhenry.moneywiseAPI.model.User;
-import com.soyhenry.moneywiseAPI.dao.UserRepository;
-import com.soyhenry.moneywiseAPI.dao.dto.request.UserRequestDto;
+import com.soyhenry.moneywiseAPI.repository.UserRepository;
+import com.soyhenry.moneywiseAPI.repository.dto.request.UserRequestDto;
 import com.soyhenry.moneywiseAPI.service.UserService;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,9 @@
 package com.soyhenry.moneywiseAPI.controller;
 
-import com.soyhenry.moneywiseAPI.dao.dto.request.UserRequestDto;
-import com.soyhenry.moneywiseAPI.dao.dto.response.UserResponseDto;
+import com.soyhenry.moneywiseAPI.repository.dto.request.UserRequestDto;
+import com.soyhenry.moneywiseAPI.repository.dto.response.UserResponseDto;
 import com.soyhenry.moneywiseAPI.service.UserService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
