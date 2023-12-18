@@ -3,12 +3,25 @@ package com.soyhenry.moneywiseAPI.model;
 import java.util.Date;
 
 public class Entry {
-    private String id;
+    private int id;
     private Date date;
     private String description;
     private double amount;
     private EntryType type;  // Enum
     private String category;
+    private int userId;
+
+    public Entry() {
+
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public Entry(Date date, String description, double amount, EntryType type, String category) {
         this.date = date;
@@ -25,11 +38,11 @@ public class Entry {
 
     // Getters y Setters
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
