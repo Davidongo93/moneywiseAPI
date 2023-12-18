@@ -33,7 +33,7 @@ public class UserController {
         if (response.equals("User updated Succesfully")) {
             return ResponseEntity.status(HttpStatus.OK).body(response);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            return ResponseEntity.status(HttpStatus.OK).body(response);
         }
     }
     @GetMapping("/users")
