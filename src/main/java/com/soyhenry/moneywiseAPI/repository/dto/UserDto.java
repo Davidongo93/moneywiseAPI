@@ -1,4 +1,4 @@
-package com.soyhenry.moneywiseAPI.dao.dto;
+package com.soyhenry.moneywiseAPI.repository.dto;
 
 public class UserDto {
     private String name;

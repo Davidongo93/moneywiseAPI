@@ -1,4 +1,4 @@
-package com.soyhenry.moneywiseAPI.dao.dto.response;
+package com.soyhenry.moneywiseAPI.repository.dto.response;
 
 public class UserResponseDto {
     private String name;

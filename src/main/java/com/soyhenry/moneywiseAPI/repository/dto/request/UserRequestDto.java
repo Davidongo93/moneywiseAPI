@@ -1,4 +1,4 @@
-package com.soyhenry.moneywiseAPI.dao.dto.request;
+package com.soyhenry.moneywiseAPI.repository.dto.request;
 // Esta es la definicion del objeto que el usuario envia provisionalmente por Http por medio de JSON
 public class UserRequestDto {
     private String name;

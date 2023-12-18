@@ -1,9 +1,8 @@
-package com.soyhenry.moneywiseAPI.dao;
+package com.soyhenry.moneywiseAPI.repository;
 
 
 
 import com.soyhenry.moneywiseAPI.model.User;
-import com.soyhenry.moneywiseAPI.dao.dto.UserDto;
 
 import java.util.List;
 

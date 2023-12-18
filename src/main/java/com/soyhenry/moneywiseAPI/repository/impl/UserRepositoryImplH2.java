@@ -1,8 +1,7 @@
-package com.soyhenry.moneywiseAPI.dao.impl;
+package com.soyhenry.moneywiseAPI.repository.impl;
 
 import com.soyhenry.moneywiseAPI.model.User;
-import com.soyhenry.moneywiseAPI.dao.UserRepository;
-import com.soyhenry.moneywiseAPI.dao.dto.UserDto;
+import com.soyhenry.moneywiseAPI.repository.UserRepository;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
