@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String createUser(UserRequestDto userRequestDto) {
 
-    String response = "User created succesfully";
+    String response = "User created successfully";
 
     User user = mapDtoToUser(userRequestDto);
     Integer responseInserted = userRepository.insert(user);
