@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
 
     private User mapDtoToUser(UserRequestDto userRequestDto) {
         User user = new User();
+        System.out.println("map dto to user REQUEST");
         user.setName(userRequestDto.getName());
         user.setEmail(userRequestDto.getEmail());
         user.setPass(userRequestDto.getPass());
@@ -63,9 +64,9 @@ public class UserServiceImpl implements UserService {
         UserResponseDto userResponseDto = new UserResponseDto();
         userResponseDto.setId(user.getId());
         System.out.println(user.getId());
-        userResponseDto.setName(user.getName());
+        userResponseDto.setName("user.getName()");
         userResponseDto.setEmail(user.getEmail());
-//        userResponseDto.setPass(user.getPass());
+//      userResponseDto.setPass(user.getPass());
         return userResponseDto;
     }
 
