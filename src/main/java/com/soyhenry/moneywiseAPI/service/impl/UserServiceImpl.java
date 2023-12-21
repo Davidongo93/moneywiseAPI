@@ -61,9 +61,11 @@ public class UserServiceImpl implements UserService {
 
     private UserResponseDto mapUsersToResponseDto(User user) {
         UserResponseDto userResponseDto = new UserResponseDto();
+        userResponseDto.setId(user.getId());
+        System.out.println(user.getId());
         userResponseDto.setName(user.getName());
         userResponseDto.setEmail(user.getEmail());
-        userResponseDto.setPass(user.getPass());
+//        userResponseDto.setPass(user.getPass());
         return userResponseDto;
     }
 

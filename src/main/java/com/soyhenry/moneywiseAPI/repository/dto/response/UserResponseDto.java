@@ -1,6 +1,7 @@
 package com.soyhenry.moneywiseAPI.repository.dto.response;
 
 public class UserResponseDto {
+    private Integer id;
     private String name;
     private String email;
     private String pass;
@@ -28,4 +29,5 @@ public class UserResponseDto {
     public void setPass(String pass) {
         this.pass = pass;
     }
+    public void setId(Integer id) {this.id = id;}
 }

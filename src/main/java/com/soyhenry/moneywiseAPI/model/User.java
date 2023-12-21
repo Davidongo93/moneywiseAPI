@@ -53,5 +53,15 @@ public class User implements Serializable {
         this.pass = pass;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", pass='" + pass + '\'' +
+                ", entries=" + entries +
+                '}';
+    }
 }
 

@@ -85,6 +85,7 @@ public  class UserRepositoryImplH2 implements UserRepository {
                 user.setId(resultSet.getInt("id"));
                 user.setName(resultSet.getString("name"));
                 user.setEmail(resultSet.getString("email"));
+                System.out.println(user.toString());
                 return user;
             }
     }
