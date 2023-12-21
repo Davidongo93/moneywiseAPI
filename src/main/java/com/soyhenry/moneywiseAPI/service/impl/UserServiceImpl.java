@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     if (responseInserted.equals(0)){
         System.out.println("User wasn't created");
     }
-        return response;
+    return "User created successfully. \n Your user ID is: " + responseInserted;
     }
 
     private User mapDtoToUser(UserRequestDto userRequestDto) {
