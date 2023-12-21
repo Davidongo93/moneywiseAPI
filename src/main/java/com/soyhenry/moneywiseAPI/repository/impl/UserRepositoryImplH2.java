@@ -2,6 +2,7 @@ package com.soyhenry.moneywiseAPI.repository.impl;
 
 import com.soyhenry.moneywiseAPI.model.User;
 import com.soyhenry.moneywiseAPI.repository.UserRepository;
+import com.soyhenry.moneywiseAPI.repository.exception.DAOException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,6 +18,8 @@ public  class UserRepositoryImplH2 implements UserRepository {
     private static final String UPDATE_USER = "UPDATE users SET name=?, email=?, pass=? WHERE id=?";
     private static final String GET_USERS_BY_ID = "SELECT * FROM users ORDER BY ID";
     private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
+    private static final String CHECK_USER_EXISTS_QUERY = "SELECT COUNT(*) FROM users WHERE id = ?";
+
     // Connection managed by jdbctemplate.
     private final JdbcTemplate jdbcTemplate;
 
@@ -60,16 +63,23 @@ public  class UserRepositoryImplH2 implements UserRepository {
                 id);
     }
     @Override
-    public void deleteUser (Integer id){
-        System.out.println("ID from deleted user: " + id);
-        // es necesario manejar una exepcion
+    public void deleteUser (Integer id) throws DAOException {
+        if (!userExists(id)) {
+            throw new DAOException("User with ID " + id + " not found. Unable to delete.");
+        }
+        // NO ES UN BORRADO LOGICO, SI BORRASTE DESAPARECIO :O
         try {
             jdbcTemplate.update(DELETE_USER, id);
+            System.out.println("ID from deleted user: " + id);
         } catch (DataAccessException exception) {
             System.out.println(("error deleting" + id));
         }
         System.out.println("User has been deleted");
 
+    }
+    private boolean userExists(Integer id) {
+        Integer count = jdbcTemplate.queryForObject(CHECK_USER_EXISTS_QUERY, Integer.class, id);
+        return count != null && count > 0;
     }
 
 }

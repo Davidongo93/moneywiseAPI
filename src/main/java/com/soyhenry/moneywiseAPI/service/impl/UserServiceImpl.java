@@ -4,6 +4,7 @@ import com.soyhenry.moneywiseAPI.repository.dto.response.UserResponseDto;
 import com.soyhenry.moneywiseAPI.model.User;
 import com.soyhenry.moneywiseAPI.repository.UserRepository;
 import com.soyhenry.moneywiseAPI.repository.dto.request.UserRequestDto;
+import com.soyhenry.moneywiseAPI.repository.exception.DAOException;
 import com.soyhenry.moneywiseAPI.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -54,9 +55,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(int id) {
-        // NO ES UN BORRADO LOGICO, SI BORRASTE DESAPARECIO :O
-        String response = "User has been deleted";
+    public void deleteUser(int id) throws DAOException {
         userRepository.deleteUser(id);
     }
 

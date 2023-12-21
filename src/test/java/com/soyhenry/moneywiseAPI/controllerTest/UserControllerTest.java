@@ -20,15 +20,14 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.lenient;
-import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @DisplayName("Start Testing UserController")
 @ExtendWith(MockitoExtension.class)
 @AutoConfigureMockMvc
 class UserControllerTest {
-@Mock
-private UserService userService;
+    @Mock
+    private UserService userService;
     @InjectMocks
     private UserController userController;
     @Autowired
@@ -36,21 +35,22 @@ private UserService userService;
 
     @Autowired
     private ObjectMapper objectMapper;
+
     @Test
     @DisplayName("POST user ")
     void TestCreateUserHandler() throws Exception {
         //given
-        UserRequestDto userRequestDto = new UserRequestDto("name","mail","pass");
+        UserRequestDto userRequestDto = new UserRequestDto("name", "mail", "pass");
 
 
         lenient().when(userService.createUser(any(UserRequestDto.class))).thenReturn("User created successfully");
         //when
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/user")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(userRequestDto)))
-        //then
-         .andExpect(MockMvcResultMatchers.status().isCreated())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(userRequestDto)))
+                //then
+                .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.content().string("User created successfully"));
 
     }

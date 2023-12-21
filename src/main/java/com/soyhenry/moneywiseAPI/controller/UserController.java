@@ -2,6 +2,7 @@ package com.soyhenry.moneywiseAPI.controller;
 
 import com.soyhenry.moneywiseAPI.repository.dto.request.UserRequestDto;
 import com.soyhenry.moneywiseAPI.repository.dto.response.UserResponseDto;
+import com.soyhenry.moneywiseAPI.repository.exception.DAOException;
 import com.soyhenry.moneywiseAPI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,11 +45,16 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id) {
-        userService.deleteUser(id);
-        System.out.println("User has been deleted");
-        return ResponseEntity
-                .status(HttpStatus.GONE)
-                .body("ID from deleted user: " + id);
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity
+                    .status(HttpStatus.GONE)
+                    .body("ID from deleted user: " + id);
+        } catch (DAOException e) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("Error deleting user: " + e.getMessage());
+        }
     }
 
 
