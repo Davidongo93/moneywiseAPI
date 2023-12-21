@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private Integer id;
-
     private String name;
     private String email;
     private String pass;
@@ -54,12 +53,5 @@ public class User implements Serializable {
         this.pass = pass;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + getName() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                '}';
-    }
 }
 
