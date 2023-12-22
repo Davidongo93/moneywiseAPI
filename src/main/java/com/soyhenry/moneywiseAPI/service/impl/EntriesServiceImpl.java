@@ -65,6 +65,7 @@ public class EntriesServiceImpl implements EntriesService {
 
     private EntryResponseDto mapEntryToResponseDto(Entry entry) {
         EntryResponseDto entryResponseDto = new EntryResponseDto();
+        entryResponseDto.setId(entry.getId()); // Set the id field
         entryResponseDto.setDate(entry.getDate());
         entryResponseDto.setDescription(entry.getDescription());
         entryResponseDto.setAmount(entry.getAmount());
@@ -72,4 +73,5 @@ public class EntriesServiceImpl implements EntriesService {
         entryResponseDto.setCategory(entry.getCategory());
         return entryResponseDto;
     }
+
 }
