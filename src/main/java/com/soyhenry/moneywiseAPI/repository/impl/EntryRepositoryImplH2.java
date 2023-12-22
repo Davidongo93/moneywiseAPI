@@ -5,11 +5,17 @@ import com.soyhenry.moneywiseAPI.repository.EntryRepository;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class EntryRepositoryImplH2 implements EntryRepository {
@@ -29,13 +35,25 @@ public class EntryRepositoryImplH2 implements EntryRepository {
 
     @Override
     public Integer insert(Entry entry) {
-        return jdbcTemplate.update(INSERT_ENTRY,
-                entry.getUserId(),
-                entry.getDate(),
-                entry.getDescription(),
-                entry.getAmount(),
-                entry.getType(),
-                entry.getCategory());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        int rowsAffected = jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(INSERT_ENTRY, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, entry.getUserId());
+            ps.setString(2, entry.getDate());
+            ps.setString(3, entry.getDescription());
+            ps.setBigDecimal(4, BigDecimal.valueOf(entry.getAmount()));
+            ps.setString(5, entry.getType());
+            ps.setString(6, entry.getCategory());
+            return ps;
+        }, keyHolder);
+
+        if (rowsAffected > 0) {
+            Integer entryId = Objects.requireNonNull(keyHolder.getKey()).intValue();
+            entry.setId(entryId);
+        }
+
+        return entry.getId();
     }
 
     @Override

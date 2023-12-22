@@ -5,7 +5,20 @@ public class EntryResponseDto {
     private String date;
     private String description;
     private double amount;
-    private String type;  // Enum
+    private String type;
+
+    @Override
+    public String toString() {
+        return "EntryResponseDto{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", type='" + type + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
+
     private String category;
     private int userId;
 

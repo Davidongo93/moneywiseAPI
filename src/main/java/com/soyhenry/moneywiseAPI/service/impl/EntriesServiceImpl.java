@@ -18,15 +18,20 @@ public class EntriesServiceImpl implements EntriesService {
         this.entryRepository = entryRepository;
     }
 
-    public java.lang.String createEntry(int userId, EntryRequestDto entryRequestDto) {
-        java.lang.String response = "Entry created successfully";
-        System.out.println("no se usar el debugger" + entryRequestDto.getDate());
+    public String createEntry(int userId, EntryRequestDto entryRequestDto) {
+        String response = "Entry created successfully";
         Entry entry = mapDtoToEntry(userId, entryRequestDto);
+
         Integer responseInserted = entryRepository.insert(entry);
+
         if (responseInserted.equals(0)) {
             System.out.println("Entry wasn't created");
+            return "Failed to create entry.";
         }
-        return response;
+
+        entry.setId(responseInserted);
+        EntryResponseDto entryResponseDto = mapEntryToResponseDto(entry);
+        return "Entry created successfully. Entry details: " + entryResponseDto.toString();
     }
 
     public List<EntryResponseDto> getUserEntries(int userId) {
