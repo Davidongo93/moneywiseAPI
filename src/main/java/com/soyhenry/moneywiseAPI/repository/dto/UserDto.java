@@ -1,9 +1,18 @@
 package com.soyhenry.moneywiseAPI.repository.dto;
 
 public class UserDto {
+    private Integer id;
     private String name;
     private String email;
     private String pass;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public UserDto() {
     }

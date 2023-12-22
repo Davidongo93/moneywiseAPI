@@ -3,6 +3,11 @@ package com.soyhenry.moneywiseAPI.repository.dto.response;
 public class UserResponseDto {
     private Integer id;
     private String name;
+
+    public Integer getId() {
+        return id;
+    }
+
     private String email;
     private String pass;
 
